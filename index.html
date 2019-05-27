@@ -1,1 +1,11 @@
-test
+<!doctype html>
+<html>
+<head>
+	<script type="text/javascript">
+		const params = new URLSearchParams(window.location.search);
+		const ip = params.get('ip');
+		const port = params.get('port');
+
+		location.href = 'steam://connect/' + [ip >>> 24 & 0xFF, ip >>> 16 & 0xFF, ip >>> 8 & 0xFF, ip & 0xFF].join('.') + ':' + port;
+	</script>
+</head>
